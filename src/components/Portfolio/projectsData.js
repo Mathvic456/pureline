@@ -9,7 +9,7 @@ export const projects = [
     year: "2023",
     description: "A 5,000 sq ft minimalist penthouse with panoramic city views featuring custom walnut millwork and floating stone elements. The design emphasizes clean lines and open spaces while maintaining warmth through natural materials.",
     tags: ["Minimalist", "Luxury", "Open Concept"],
-    images: [One]
+    // images: [One]
   },
   {
     id: 2,

@@ -53,7 +53,7 @@ export default function Hero({ onBookClick }) {
         <div className="p-1 bg-gradient-to-br from-gray-200 to-white rounded-full shadow-lg">
           <div className="p-2 bg-white rounded-full">
             <img 
-              src={Logo} 
+              src={logo} 
               alt="Pureline Design Logo"
               className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-gray-100"
             />
@@ -74,7 +74,7 @@ export default function Hero({ onBookClick }) {
           <div className="p-2 bg-gradient-to-br from-gray-200 to-white rounded-full shadow-xl">
             <div className="p-3 bg-white rounded-full">
               <img 
-                src={Logo}
+                src={logo}
                 alt="Pureline Design"
                 className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2 border-gray-100"
               />

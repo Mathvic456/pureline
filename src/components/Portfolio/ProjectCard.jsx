@@ -37,7 +37,7 @@ export default function ProjectCard({ project, index }) {
         {/* Project Image */}
         <div className="aspect-[4/3] overflow-hidden">
           <img
-            src={project.images[0]}
+            // src={project.images[0]}
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
