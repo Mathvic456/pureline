@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import Logo from '../assets/logo.jpg';
+import logo from '../assets/logo.jpg';
 
 export default function Hero({ onBookClick }) {
   // Animation variants

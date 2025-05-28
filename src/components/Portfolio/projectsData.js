@@ -1,8 +1,3 @@
-import One from '../../assets/One.jpg';
-// import { i } from 'framer-motion/client';
-import Two from '../../assets/Two.jpg';
-import Three from '../../assets/Three.jpg';
-import Four from '../../assets/Four.jpg';
 
 
 export const projects = [
