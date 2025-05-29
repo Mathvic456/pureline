@@ -87,7 +87,7 @@ export default function Hero({ onBookClick }) {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-gray-600 mb-4"
+          className="text-5xl md:text-7xl font-bold tracking-tight " style={{color: '#4d565d'}}
         >
           Pureline Design
         </motion.h1>
@@ -216,3 +216,4 @@ export default function Hero({ onBookClick }) {
     </motion.section>
   );
 }
+
