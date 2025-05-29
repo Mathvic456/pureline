@@ -3,7 +3,7 @@ import ProjectCard from './ProjectCard';
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-thin text-center mb-12">Our Portfolio</h2>
         
