@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-// import logo from '../assets/logo.jpg';
 import BrandLogo from '../assets/BrandLogo.jpg'
 
 export default function Hero({ onBookClick }) {
@@ -88,10 +87,21 @@ export default function Hero({ onBookClick }) {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          className="text-5xl md:text-7xl font-thin tracking-tight text-gray-800 mb-4"
+          className="text-5xl md:text-7xl font-bold tracking-tight text-gray-600 mb-4"
         >
           Pureline Design
         </motion.h1>
+
+          <motion.h6
+          custom={0}
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          className=" md:text-2xl font-thin tracking-tight text-gray-600 mb-4"
+        >
+          (Myideasmightblowyourmind)
+        </motion.h6>
+        
         
         <motion.p 
           custom={1}

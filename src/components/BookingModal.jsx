@@ -1,8 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, User, Mail, Home, Clock, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
-// import { useForm } from "@formspree/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const serviceOptions = [
   "Residential Design",
@@ -13,15 +12,19 @@ const serviceOptions = [
 ];
 
 export default function BookingModal({ isOpen, onClose }) {
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
+  const formRef = useRef(null);
 
-  const onSubmit = async (data) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Booking submitted:", data);
+  const onSubmit = async () => {
+    // Form will be submitted via native HTML
     setIsConfirmed(true);
+    formRef.current?.submit(); // trigger native form submission to Formspree
   };
 
   const handleNewBooking = () => {
@@ -55,13 +58,22 @@ export default function BookingModal({ isOpen, onClose }) {
             {!isConfirmed ? (
               <div className="p-8">
                 <h3 className="text-2xl font-thin mb-6">Schedule Consultation</h3>
-                
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  {/* Service Type */}
+
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit(onSubmit)}
+                  action="https://formspree.io/f/myzwrlqg"
+                  method="POST"
+                  className="space-y-4"
+                >
+                  <input type="hidden" name="_next" value="http://localhost:3000/thank-you" />
+                  <input type="hidden" name="_captcha" value="false" />
+
                   <div className="relative">
                     <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                     <select
                       {...register("serviceType", { required: "Please select a service" })}
+                      name="serviceType"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg appearance-none bg-white"
                     >
                       <option value="">Select Service Type</option>
@@ -74,11 +86,11 @@ export default function BookingModal({ isOpen, onClose }) {
                     )}
                   </div>
 
-                  {/* Name */}
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                     <input
                       {...register("name", { required: "Name is required" })}
+                      name="name"
                       placeholder="Full Name"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg"
                     />
@@ -87,17 +99,17 @@ export default function BookingModal({ isOpen, onClose }) {
                     )}
                   </div>
 
-                  {/* Email */}
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                     <input
-                      {...register("email", { 
+                      {...register("email", {
                         required: "Email is required",
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: "Invalid email address"
                         }
                       })}
+                      name="email"
                       placeholder="Email Address"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg"
                     />
@@ -106,17 +118,17 @@ export default function BookingModal({ isOpen, onClose }) {
                     )}
                   </div>
 
-                  {/* Phone */}
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                     <input
-                      {...register("phone", { 
+                      {...register("phone", {
                         required: "Phone number is required",
                         pattern: {
                           value: /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
                           message: "Invalid phone number"
                         }
                       })}
+                      name="phone"
                       placeholder="Phone Number"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg"
                     />
@@ -125,32 +137,32 @@ export default function BookingModal({ isOpen, onClose }) {
                     )}
                   </div>
 
-                  {/* Date */}
                   <div className="relative">
                     <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                     <input
                       type="date"
-                      {...register("date", { 
+                      {...register("date", {
                         required: "Date is required",
                         min: {
                           value: new Date().toISOString().split('T')[0],
                           message: "Date must be in the future"
                         }
                       })}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg"
+                      name="date"
                       onChange={(e) => setSelectedDate(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg"
                     />
                     {errors.date && (
                       <p className="text-red-500 text-sm mt-1">{errors.date.message}</p>
                     )}
                   </div>
 
-                  {/* Time */}
                   {selectedDate && (
                     <div className="relative">
                       <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                       <select
                         {...register("time", { required: "Time is required" })}
+                        name="time"
                         className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg appearance-none bg-white"
                       >
                         <option value="">Select Time</option>
@@ -164,10 +176,10 @@ export default function BookingModal({ isOpen, onClose }) {
                     </div>
                   )}
 
-                  {/* Additional Notes */}
                   <div>
                     <textarea
                       {...register("notes")}
+                      name="notes"
                       placeholder="Additional notes (optional)"
                       rows={3}
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg"
