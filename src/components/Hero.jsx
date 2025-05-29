@@ -110,7 +110,7 @@ export default function Hero({ onBookClick }) {
           variants={textVariants}
           className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto"
         >
-          Where <span className="italic font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-400">less is more</span> meets timeless elegance.
+          Designs that <span className="italic font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-400">define your space</span>.
         </motion.p>
 
         <motion.div
