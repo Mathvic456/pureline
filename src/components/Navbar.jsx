@@ -38,7 +38,7 @@ export default function Navbar({ onBookClick }) {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
             onClick={onBookClick}
-            className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
+            className="px-4 py-2 text-white rounded-lg hover:bg-gray-700 transition"  style={{backgroundColor: '#4d565d'}}
           >
             Book Consultation
           </motion.button>

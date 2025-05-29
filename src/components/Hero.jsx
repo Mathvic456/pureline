@@ -40,7 +40,7 @@ export default function Hero({ onBookClick }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-16 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 pt-16 relative overflow-hidden" 
     >
       {/* Floating Logo - Top Left */}
       <motion.div
@@ -50,12 +50,12 @@ export default function Hero({ onBookClick }) {
         variants={logoContainerVariants}
         className="absolute top-8 left-8 md:top-12 md:left-12 z-10"
       >
-        <div className="p-1 bg-gradient-to-br from-gray-200 to-white rounded-full shadow-lg">
+        <div className="p-1 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full shadow-lg">
           <div className="p-2 bg-white rounded-full">
             <img 
               src={BrandLogo} 
               alt="Pureline Design Logo"
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-gray-100"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-gray-200"
             />
           </div>
         </div>
@@ -71,12 +71,12 @@ export default function Hero({ onBookClick }) {
           variants={logoContainerVariants}
           className="mb-6 md:mb-10"
         >
-          <div className="p-2 bg-gradient-to-br from-gray-200 to-white rounded-full shadow-xl">
+          <div className="p-2 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full shadow-xl">
             <div className="p-3 bg-white rounded-full">
               <img 
                 src={BrandLogo}
                 alt="Pureline Design"
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2 border-gray-100"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2 border-gray-200"
               />
             </div>
           </div>
@@ -108,9 +108,9 @@ export default function Hero({ onBookClick }) {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto"
+          className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
         >
-          Designs that <span className="italic font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-400">define your space</span>.
+          Designs that <span className="italic font-medium bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-500">define your space</span>.
         </motion.p>
 
         <motion.div
@@ -168,14 +168,14 @@ export default function Hero({ onBookClick }) {
           }}
         >
           <div className="p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
-            <ChevronDown className="text-gray-500" size={20} />
+            <ChevronDown className="text-gray-600" size={20} />
           </div>
         </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
           transition={{ delay: 1.5 }}
-          className="text-xs text-gray-500 mt-2 tracking-wider"
+          className="text-xs text-gray-600 mt-2 tracking-wider"
         >
           SCROLL TO EXPLORE
         </motion.p>
@@ -203,7 +203,7 @@ export default function Hero({ onBookClick }) {
                 ease: "linear"
               }
             }}
-            className="absolute border border-gray-200 rounded-full"
+            className="absolute border border-gray-300 rounded-full"
             style={{
               width: `${50 + i * 30}px`,
               height: `${50 + i * 30}px`,
@@ -216,4 +216,3 @@ export default function Hero({ onBookClick }) {
     </motion.section>
   );
 }
-
